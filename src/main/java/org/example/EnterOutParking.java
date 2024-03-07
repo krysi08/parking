@@ -1,5 +1,8 @@
 package org.example;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Objects;
 public class EnterOutParking {
     private String id;
@@ -59,5 +62,30 @@ public class EnterOutParking {
         return id == parking.id && Objects.equals(id,parking.id);
 
     }
+
+    //public void saveToFile() {
+       // saveToFile(null, null);
+
+
+    static public void saveToFile(EnterOutParking[] vehicles, PrintWriter outS)
+    {
+        outS.println(vehicles.length);
+        for(int i = 0; i<vehicles.length; i++)
+        {
+            outS.println(vehicles[i].getId() + "|" + vehicles[i].getManufacture() + "|" + vehicles[i].getName());
+        }
+    }
+
+    public static EnterOutParking[] writeoutFromFile(BufferedReader InS) throws IOException
+    {
+        int dl = Integer.parseInt(InS.readLine());
+        EnterOutParking[] enteroutparking = new EnterOutParking[dl];
+        for(int i = 0; i < enteroutparking.length; i++)
+        {
+            enteroutparking[i] = new EnterOutParking("id","name","manufacture");
+        }
+        return enteroutparking;
+    }
+
 }
 
