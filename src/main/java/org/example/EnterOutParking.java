@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Objects;
+import java.util.StringTokenizer;
+
 public class EnterOutParking {
     private String id;
     private String name;
@@ -72,7 +74,7 @@ public class EnterOutParking {
         outS.println(vehicles.length);
         for(int i = 0; i<vehicles.length; i++)
         {
-            outS.println(vehicles[i].getId() + "|" + vehicles[i].getManufacture() + "|" + vehicles[i].getName());
+            outS.println(vehicles[i].getId() + "|" + vehicles[i].getName() + "|" + vehicles[i].getManufacture());
         }
     }
 
@@ -82,7 +84,12 @@ public class EnterOutParking {
         EnterOutParking[] enteroutparking = new EnterOutParking[dl];
         for(int i = 0; i < enteroutparking.length; i++)
         {
-            enteroutparking[i] = new EnterOutParking("id","name","manufacture");
+            String linia = InS.readLine();
+            StringTokenizer tokeny = new StringTokenizer(linia,"|" );
+            String Id= tokeny.nextToken();
+            String Name= tokeny.nextToken();
+            String Manufacture= tokeny.nextToken();
+            enteroutparking[i] = new EnterOutParking(Id,Name,Manufacture);
         }
         return enteroutparking;
     }
