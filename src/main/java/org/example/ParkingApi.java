@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 
+
 public class ParkingApi {
 
     private List<EnterOutParking> parking;
@@ -36,6 +37,7 @@ public class ParkingApi {
     public boolean addCar(EnterOutParking car) {
         return parking.add(car);
     }
+
 
     //putMapping
     public boolean updateCar(EnterOutParking car) {
